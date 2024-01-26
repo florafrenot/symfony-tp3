@@ -1,0 +1,37 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Material index{% endblock %}
+
+{% block body %}
+{% include 'admin/nav.html.twig' %}
+
+    <h1>Liste des matériaux</h1>
+    <a class="btn btn-primary m-3" href="{{ path('app_admin_material_new') }}" role="button">Ajouter</a>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Nom</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for material in materials %}
+            <tr>
+                <td>{{ material.id }}</td>
+                <td>{{ material.name }}</td>
+                <td>
+                    <a class="btn btn-primary" href="{{ path('app_admin_material_show', {'id': material.id}) }}" role="button">Voir</a>
+                    <a class="btn btn-secondary"  href="{{ path('app_admin_material_edit', {'id': material.id}) }}" role="button">Éditer</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="3">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+{% endblock %}

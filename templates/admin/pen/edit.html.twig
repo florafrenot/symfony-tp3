@@ -1,0 +1,15 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Edit Pen{% endblock %}
+
+{% block body %}
+{% include 'admin/nav.html.twig' %}
+
+    <h1>Éditer un stylo</h1>
+
+    {{ include('admin/pen/_form.html.twig', {'button_label': 'Update'}) }}
+
+    <a href="{{ path('app_admin_pen_index') }}">Revenir à la liste</a>
+
+    {{ include('admin/pen/_delete_form.html.twig') }}
+{% endblock %}

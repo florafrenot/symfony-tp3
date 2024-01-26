@@ -1,0 +1,15 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Edit Color{% endblock %}
+
+{% block body %}
+{% include 'admin/nav.html.twig' %}
+
+    <h1>Éditer une couleur</h1>
+
+    {{ include('admin/color/_form.html.twig', {'button_label': 'Update'}) }}
+
+    <a href="{{ path('app_admin_color_index') }}">Revenir à la liste</a>
+
+    {{ include('admin/color/_delete_form.html.twig') }}
+{% endblock %}

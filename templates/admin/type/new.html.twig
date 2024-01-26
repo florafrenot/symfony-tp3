@@ -1,0 +1,14 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}New Type{% endblock %}
+
+{% block body %}
+{% include 'admin/nav.html.twig' %}
+
+    <h1>Ajouter un type</h1>
+    <a href="{{ path('app_admin_type_index') }}" role="buttun" class="btn btn-primary m-3">Revenir à la liste</a>
+
+
+    {{ include('admin/type/_form.html.twig') }}
+
+{% endblock %}

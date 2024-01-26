@@ -1,0 +1,44 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Pen index{% endblock %}
+
+{% block body %}
+{% include 'admin/nav.html.twig' %}
+
+    <h1>Liste des stylos</h1>
+    <a href="{{ path('app_admin_pen_new') }}" class="btn btn-success" role="button">Ajouter</a>
+
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Nom</th>
+                <th>Prix</th>
+                <th>Description</th>
+                <th>Référence</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for pen in pens %}
+            <tr>
+                <td>{{ pen.id }}</td>
+                <td>{{ pen.name }}</td>
+                <td>{{ pen.price }}</td>
+                <td>{{ pen.description }}</td>
+                <td>{{ pen.ref }}</td>
+                <td>
+                    <a class="btn btn-primary"  href="{{ path('app_admin_pen_show', {'id': pen.id}) }}" role="button">Voir</a>
+                    <a class="btn btn-secondary"  href="{{ path('app_admin_pen_edit', {'id': pen.id}) }}" role="button">Éditer</a>    
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="6">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+{% endblock %}

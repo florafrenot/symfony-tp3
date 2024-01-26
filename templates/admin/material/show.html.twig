@@ -1,0 +1,27 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Material{% endblock %}
+
+{% block body %}
+{% include 'admin/nav.html.twig' %}
+
+    <h1>Matériel</h1>
+    <a class="btn btn-primary m-3" href="{{ path('app_admin_material_index') }}" role="button">Revenir à la liste</a>
+
+    <table class="table">
+        <tbody>
+            <tr>
+                <th>ID</th>
+                <td>{{ material.id }}</td>
+            </tr>
+            <tr>
+                <th>Nom</th>
+                <td>{{ material.name }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <a href="{{ path('app_admin_material_edit', {'id': material.id}) }}">Éditer</a>
+
+    {{ include('admin/material/_delete_form.html.twig') }}
+{% endblock %}

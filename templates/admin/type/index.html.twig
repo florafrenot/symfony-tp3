@@ -1,0 +1,38 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Type index{% endblock %}
+
+{% block body %}
+{% include 'admin/nav.html.twig' %}
+
+    <h1>Liste des types</h1>
+        <a class="btn btn-primary m-3" href="{{ path('app_admin_type_new') }}" role="button">Ajouter</a>
+
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Nom</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for type in types %}
+            <tr>
+                <td>{{ type.id }}</td>
+                <td>{{ type.name }}</td>
+                <td>
+                    <a class="btn btn-primary" href="{{ path('app_admin_type_show', {'id': type.id}) }}" role="button">Voir</a>
+                    <a class="btn btn-secondary" href="{{ path('app_admin_type_edit', {'id': type.id}) }}" role="button">Éditer</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="3">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+{% endblock %}

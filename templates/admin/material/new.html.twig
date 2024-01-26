@@ -1,0 +1,13 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}New Material{% endblock %}
+
+{% block body %}
+{% include 'admin/nav.html.twig' %}
+
+    <h1>Ajouter un matériel</h1>
+
+    {{ include('admin/material/_form.html.twig') }}
+    
+    <a class="btn btn-primary m-3" href="{{ path('app_admin_material_index') }}" role="button">Revenir à la liste</a>
+{% endblock %}

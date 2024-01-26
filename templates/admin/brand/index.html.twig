@@ -1,0 +1,37 @@
+{% extends 'base.html.twig' %}
+{% block title %}Brand index{% endblock %}
+
+{% block body %}
+{% include 'admin/nav.html.twig' %}
+
+    <h1>Liste des marques</h1>
+    <a href="{{ path('app_admin_brand_new') }}" role="button" class="btn btn-success m-3">Ajouter</a>
+
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Nom</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for brand in brands %}
+            <tr>
+                <td>{{ brand.id }}</td>
+                <td>{{ brand.name }}</td>
+                <td>
+                    <a class="btn btn-primary"  href="{{ path('app_admin_brand_show', {'id': brand.id}) }}" role="button">Voir</a>
+                    <a class="btn btn-secondary"  href="{{ path('app_admin_brand_edit', {'id': brand.id}) }}" role="button">Éditer</a>    
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="3">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+{% endblock %}

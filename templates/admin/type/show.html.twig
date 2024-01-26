@@ -1,0 +1,28 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Type{% endblock %}
+
+{% block body %}
+{% include 'admin/nav.html.twig' %}
+
+    <h1>Type</h1>
+
+    <table class="table">
+        <tbody>
+            <tr>
+                <th>ID</th>
+                <td>{{ type.id }}</td>
+            </tr>
+            <tr>
+                <th>Nom</th>
+                <td>{{ type.name }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <a href="{{ path('app_admin_type_index') }}">Revenir à la liste</a>
+
+    <a href="{{ path('app_admin_type_edit', {'id': type.id}) }}">Éditer</a>
+
+    {{ include('admin/type/_delete_form.html.twig') }}
+{% endblock %}

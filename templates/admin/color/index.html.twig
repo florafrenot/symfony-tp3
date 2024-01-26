@@ -1,0 +1,38 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Color index{% endblock %}
+
+{% block body %}
+{% include 'admin/nav.html.twig' %}
+
+    <h1>Liste des couleurs</h1>
+    <a href="{{ path('app_admin_color_new') }}" role="button" class="btn btn-success m-3">Ajouter</a>
+
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Name</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for color in colors %}
+            <tr>
+                <td>{{ color.id }}</td>
+                <td>{{ color.name }}</td>
+                <td>
+                    <a class="btn btn-primary" href="{{ path('app_admin_color_show', {'id': color.id}) }}" role="button">Voir</a>
+                    <a class="btn btn-secondary" href="{{ path('app_admin_color_edit', {'id': color.id}) }}"role="button">Éditer</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="3">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+{% endblock %}

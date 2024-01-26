@@ -1,0 +1,29 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Brand{% endblock %}
+
+{% block body %}
+{% include 'admin/nav.html.twig' %}
+
+    <h1>Marque</h1>
+    <a class="btn btn-primary mt-3" href="{{ path('app_admin_brand_index') }}" role="button">Revenir à la liste</a>
+
+    <table class="table">
+        <tbody>
+            <tr>
+                <th>ID</th>
+                <td>{{ brand.id }}</td>
+            </tr>
+            <tr>
+                <th>Nom</th>
+                <td>{{ brand.name }}</td>
+            </tr>
+            <tr>
+                <th>Éditer</th>
+                <td><a href="{{ path('app_admin_brand_edit', {'id': brand.id}) }}" class="btn btn-secondary">Éditer</a></td>
+            </tr>            
+        </tbody>
+    </table>
+
+    {{ include('admin/brand/_delete_form.html.twig') }}
+{% endblock %}
